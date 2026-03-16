@@ -1,0 +1,16 @@
+services:
+  servidor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: server
+    ports:
+      - "7896:7896"
+
+  cliente:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: client
+    depends_on:
+      - servidor
